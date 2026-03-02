@@ -1,0 +1,47 @@
+# ANERLE Configuration
+neuro_evolution:
+  population_size: 100
+  tournament_size: 7
+  mutation_rate: 0.15
+  crossover_rate: 0.35
+  elitism_count: 5
+  max_generations: 50
+  genotype_params:
+    max_layers: 5
+    min_layers: 2
+    max_neurons_per_layer: 256
+    min_neurons_per_layer: 16
+    activation_functions: ["relu", "tanh", "sigmoid", "leaky_relu"]
+    indicator_sets: ["rsi", "macd", "bbands", "stoch", "obv"]
+
+reinforcement_learning:
+  learning_rate: 0.0001
+  discount_factor: 0.99
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay: 0.995
+  replay_buffer_size: 10000
+  batch_size: 64
+  target_update_frequency: 100
+  max_episodes: 1000
+  episode_length: 100
+
+trading:
+  exchange: "binance"
+  symbols: ["BTC/USDT", "ETH/USDT", "SOL/USDT"]
+  timeframe: "1h"
+  initial_balance: 10000.0
+  max_position_size: 0.1
+  stop_loss_pct: 0.02
+  take_profit_pct: 0.04
+
+firebase:
+  collection_strategies: "anerle_strategies"
+  collection_performance: "anerle_performance_metrics"
+  collection_state: "anerle_global_state"
+
+logging:
+  level: "INFO"
+  file_path: "logs/anerle_system.log"
+  max_file_size_mb: 100
+  backup_count: 5
